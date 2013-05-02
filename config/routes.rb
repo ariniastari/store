@@ -1,4 +1,8 @@
 Store::Application.routes.draw do
+  resources :productsas
+
+  get "new_product/index"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -11,7 +15,11 @@ Store::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  resources :products
+  resources :products do
+    collection do
+      get 'hot_products'
+    end
+  end
 
   # Sample resource route with options:
   #   resources :products do
